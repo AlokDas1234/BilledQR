@@ -53,3 +53,12 @@ def process_scan(request):
 
         return JsonResponse({"status": "success", "received": scanned_value})
     return JsonResponse({"status": "error"}, status=400)
+
+def process_final_scan(request):
+    if request.method == "POST":
+        contract_no=request.POST.get("contract_no")
+        party_name=request.POST.get("party_name")
+        print(f"Party Name: {party_name}")
+        print(f"contract No: {contract_no}")
+
+    return render (request, "myapp/index.html")

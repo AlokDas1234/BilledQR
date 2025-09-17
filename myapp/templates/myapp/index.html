@@ -22,6 +22,7 @@
     <input type="number" name="stock_qty"><br><br>
 
     <button type="submit">Submit</button>
+
 </form>
 
 {% if items_with_qr %}
@@ -46,7 +47,7 @@
 <div id="user_input" style="display:none;">
 <h2>User Input</h2>
 
-<form method="POST" enctype="multipart/form-data">
+<form method="POST" enctype="multipart/form-data" action="{%  url 'process_final_scan' %}">
     {% csrf_token %}
 
      <label for="contract_no">Contract No:</label><br>
@@ -55,9 +56,9 @@
     <label for="party_name">Party Name:</label><br>
     <input type="text" name="party_name"><br><br>
 
-
     <button type="submit">Submit</button>
 </form>
+
 </div>
 <script>
     function onScanSuccess(decodedText, decodedResult) {
