@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload Form</title>
+</head>
+<body>
+<h1>Welcome To Django Charm</h1>
+
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+
+
+
+
+     <label for="item_code">Item Code:</label><br>
+    <input type="text" name="item_code"><br><br>
+
+    <label for="item_name">Item  Name:</label><br>
+    <input type="text" name="item_name"><br><br>
+
+    <label for="stock_qty">Stock Qty:</label><br>
+    <input type="number" name="stock_qty"><br><br>
+
+
+
+
+    <button type="submit">Submit</button>
+</form>
+
+{% if items_with_qr %}
+<h1>These are all Items:</h1>
+{% for entry in items_with_qr %}
+    <p>Item Code: {{ entry.item.item_code }}</p>
+    <p>Item Name: {{ entry.item.item_name }}</p>
+    <p>Item Sl: {{ entry.sl_no }}</p>
+
+    <p> Total Stock Qty: {{ entry.item.stock_qty }}</p>
+    <img src="data:image/png;base64,{{ entry.qr_code }}" alt="QR Code">
+    <p>_______________________________</p>
+{% endfor %}
+{% endif %}
+
+</body>
+</html>
