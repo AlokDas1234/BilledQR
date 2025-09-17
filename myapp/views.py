@@ -55,6 +55,8 @@ def process_scan(request):
     return JsonResponse({"status": "error"}, status=400)
 
 def process_final_scan(request):
+    contract_no=None
+    party_name=None
     if request.method == "POST":
         contract_no=request.POST.get("contract_no")
         party_name=request.POST.get("party_name")

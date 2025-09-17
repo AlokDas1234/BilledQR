@@ -25,10 +25,10 @@
 
 </form>
 {% if contract_no %}
-{{ contract_no }}
+<p>{{ contract_no }}</p>
 {% endif %}
 {% if party_name %}
-{{ party_name }}
+<p>{{ party_name }}</p>
 {% endif %}
 
 </body>
@@ -56,7 +56,7 @@
 <div id="user_input" style="display:none;">
 <h2>User Input</h2>
 
-<form method="POST" enctype="multipart/form-data" action="{%  url 'process_final_scan' %}">
+<form method="POST" enctype="multipart/form-data" action="{%  url'process_final_scan' %}">
     {% csrf_token %}
 
      <label for="contract_no">Contract No:</label><br>
@@ -64,8 +64,8 @@
 
     <label for="party_name">Party Name:</label><br>
     <input type="text" name="party_name"><br><br>
-
     <button type="submit">Submit</button>
+
 </form>
 
 </div>
