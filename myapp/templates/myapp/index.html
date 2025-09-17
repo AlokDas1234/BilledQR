@@ -31,8 +31,8 @@
 <p>{{ party_name }}</p>
 {% endif %}
 
-</body>
-</html>
+
+
 
 {% if items_with_qr %}
 <h1>These are all Items:</h1>
@@ -89,6 +89,8 @@
         document.getElementById("user_input").style.display = "block";
         console.log(`Code scanned = ${decodedText}`);
         document.getElementById("qr-result").innerText = "Scanned: " + decodedText;
+        document.getElementById("scanned_data").value = decodedText;
+
 
         // Optionally send this to your Django view
         fetch("/process-scan/", {
