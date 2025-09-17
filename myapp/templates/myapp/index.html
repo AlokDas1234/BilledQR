@@ -56,17 +56,32 @@
 <div id="user_input" style="display:none;">
 <h2>User Input</h2>
 
-<form method="POST" enctype="multipart/form-data" action="{%  url'process_final_scan' %}">
+<!--<form method="POST" enctype="multipart/form-data" action="{%  url 'process_final_scan' %}">-->
+<!--    {% csrf_token %}-->
+
+<!--     <label for="contract_no">Contract No:</label><br>-->
+<!--    <input type="text" name="contract_no"><br><br>-->
+
+<!--    <label for="party_name">Party Name:</label><br>-->
+<!--    <input type="text" name="party_name"><br><br>-->
+<!--    <button type="submit">Submit</button>-->
+
+<!--</form>-->
+    <form method="POST" enctype="multipart/form-data" action="{% url 'process_final_scan' %}">
     {% csrf_token %}
 
-     <label for="contract_no">Contract No:</label><br>
-    <input type="text" name="contract_no"><br><br>
+    <!-- Hidden field to hold scanned QR value -->
+    <input type="hidden" name="scanned_data" id="scanned_data">
+
+    <label for="contract_no">Contract No:</label><br>
+    <input type="text" name="contract_no" required><br><br>
 
     <label for="party_name">Party Name:</label><br>
-    <input type="text" name="party_name"><br><br>
-    <button type="submit">Submit</button>
+    <input type="text" name="party_name" required><br><br>
 
+    <button type="submit">Submit</button>
 </form>
+
 
 </div>
 <script>

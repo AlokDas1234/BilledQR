@@ -55,12 +55,16 @@ def process_scan(request):
     return JsonResponse({"status": "error"}, status=400)
 
 def process_final_scan(request):
-    contract_no=None
-    party_name=None
     if request.method == "POST":
-        contract_no=request.POST.get("contract_no")
-        party_name=request.POST.get("party_name")
-        print(f"Party Name: {party_name}")
-        print(f"contract No: {contract_no}")
+        scanned_value = request.POST.get("scanned_data")
+        contract_no = request.POST.get("contract_no")
+        party_name = request.POST.get("party_name")
 
-    return render (request, "myapp/index.html",{"contract_no": contract_no, "party_name": party_name})
+        print(f"Scanned QR: {scanned_value}")
+        print(f"Contract No: {contract_no}")
+        print(f"Party Name: {party_name}")
+
+        # Process/save data here
+        return HttpResponse("Data saved successfully!")
+
+    return HttpResponse("Invalid request", status=400)
