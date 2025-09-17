@@ -1,3 +1,5 @@
+from http.client import responses
+
 import qrcode
 import base64
 from io import BytesIO
@@ -65,6 +67,6 @@ def process_final_scan(request):
         print(f"Party Name: {party_name}")
 
         # Process/save data here
-        return HttpResponse("Data saved successfully!")
+        return render(request, "myapp/index.html", {"scanned_value": scanned_value, "contract_no": contract_no, "party_name": party_name})
 
     return HttpResponse("Invalid request", status=400)
