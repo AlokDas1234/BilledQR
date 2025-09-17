@@ -37,3 +37,20 @@ def index(request):
             })
 
     return render(request, "myapp/index.html", {"items_with_qr": items_with_qr})
+
+# views.py
+from django.http import JsonResponse
+import json
+
+def process_scan(request):
+    if request.method == "POST":
+        data = json.loads(request.body)
+        scanned_value = data.get("scanned_data")
+        print(f"Scanned QR value: {scanned_value}")
+
+        # You can use scanned_value to look up your Item model
+        # Example: item = Item.objects.filter(item_code=scanned_value).first()
+
+        return JsonResponse({"status": "success", "received": scanned_value})
+
+    return JsonResponse({"status": "error"}, status=400)

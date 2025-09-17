@@ -3,15 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Upload Form</title>
+   <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+
 </head>
 <body>
 <h1>Welcome To Django Charm</h1>
 
 <form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
-
-
-
 
      <label for="item_code">Item Code:</label><br>
     <input type="text" name="item_code"><br><br>
@@ -21,8 +20,6 @@
 
     <label for="stock_qty">Stock Qty:</label><br>
     <input type="number" name="stock_qty"><br><br>
-
-
 
 
     <button type="submit">Submit</button>
@@ -40,6 +37,39 @@
     <p>_______________________________</p>
 {% endfor %}
 {% endif %}
+
+<h2>Scan QR Code</h2>
+<div id="qr-reader" style="width:300px;"></div>
+<p id="qr-result"></p>
+
+<script>
+    function onScanSuccess(decodedText, decodedResult) {
+        console.log(`Code scanned = ${decodedText}`);
+        document.getElementById("qr-result").innerText = "Scanned: " + decodedText;
+
+        // Optionally send this to your Django view
+        fetch("/process-scan/", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "X-CSRFToken": "{{ csrf_token }}",
+            },
+            body: JSON.stringify({ scanned_data: decodedText }),
+        })
+        .then(response => response.json())
+        .then(data => console.log(data))
+        .catch(error => console.error("Error:", error));
+    }
+
+    function onScanFailure(error) {
+        // You can ignore scan errors, they happen when no QR code is in front of camera
+    }
+
+    let html5QrcodeScanner = new Html5QrcodeScanner(
+        "qr-reader", { fps: 10, qrbox: 250 });
+    html5QrcodeScanner.render(onScanSuccess, onScanFailure);
+</script>
+
 
 </body>
 </html>
