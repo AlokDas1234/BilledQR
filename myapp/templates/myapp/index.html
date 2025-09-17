@@ -21,7 +21,6 @@
     <label for="stock_qty">Stock Qty:</label><br>
     <input type="number" name="stock_qty"><br><br>
 
-
     <button type="submit">Submit</button>
 </form>
 
@@ -42,8 +41,27 @@
 <div id="qr-reader" style="width:300px;"></div>
 <p id="qr-result"></p>
 
+
+
+<div id="user_input" style="display:none;">
+<h2>User Input</h2>
+
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+
+     <label for="contract_no">Contract No:</label><br>
+    <input type="text" name="contract_no"><br><br>
+
+    <label for="party_name">Party Name:</label><br>
+    <input type="text" name="party_name"><br><br>
+
+
+    <button type="submit">Submit</button>
+</form>
+</div>
 <script>
     function onScanSuccess(decodedText, decodedResult) {
+        document.getElementById("user_input").style.display = "block";
         console.log(`Code scanned = ${decodedText}`);
         document.getElementById("qr-result").innerText = "Scanned: " + decodedText;
 
@@ -68,8 +86,8 @@
     let html5QrcodeScanner = new Html5QrcodeScanner(
         "qr-reader", { fps: 10, qrbox: 250 });
     html5QrcodeScanner.render(onScanSuccess, onScanFailure);
-</script>
 
+</script>
 
 </body>
 </html>

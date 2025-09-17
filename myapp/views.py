@@ -52,5 +52,4 @@ def process_scan(request):
         # Example: item = Item.objects.filter(item_code=scanned_value).first()
 
         return JsonResponse({"status": "success", "received": scanned_value})
-
     return JsonResponse({"status": "error"}, status=400)
