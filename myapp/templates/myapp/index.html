@@ -24,6 +24,15 @@
     <button type="submit">Submit</button>
 
 </form>
+{% if contract_no %}
+{{ contract_no }}
+{% endif %}
+{% if party_name %}
+{{ party_name }}
+{% endif %}
+
+</body>
+</html>
 
 {% if items_with_qr %}
 <h1>These are all Items:</h1>

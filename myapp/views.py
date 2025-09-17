@@ -61,4 +61,4 @@ def process_final_scan(request):
         print(f"Party Name: {party_name}")
         print(f"contract No: {contract_no}")
 
-    return render (request, "myapp/index.html")
+    return render (request, "myapp/index.html",{"contract_no": contract_no, "party_name": party_name})
