@@ -61,12 +61,15 @@ def process_final_scan(request):
         scanned_value = request.POST.get("scanned_data")
         contract_no = request.POST.get("contract_no")
         party_name = request.POST.get("party_name")
+        gear_box = request.POST.get("gear_box")
+        actuator = request.POST.get("actuator")
+        valve = request.POST.get("valve")
 
         # print(f"Scanned QR: {scanned_value}")
         # print(f"Contract No: {contract_no}")
         # print(f"Party Name: {party_name}")
 
         # Process/save data here
-        return render(request, "myapp/index.html", {"scanned_value": scanned_value, "contract_no": contract_no, "party_name": party_name})
+        return render(request, "myapp/index.html", {"scanned_value": scanned_value, "contract_no": contract_no, "party_name": party_name,"gear_box": gear_box, "actuator": actuator, "valve": valve})
 
     return HttpResponse("Invalid request", status=400)

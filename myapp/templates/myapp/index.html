@@ -35,6 +35,9 @@
 {% endif %}
 {% if party_name %}
 <p>{{ party_name }}</p>
+<p>{{ gear_box }}</p>
+<p>{{ actuator }}</p>
+<p>{{ valve }}</p>
 <p>{{ scanned_value }}</p>
 {% endif %}
 
@@ -81,11 +84,21 @@
     <!-- Hidden field to hold scanned QR value -->
     <input type="hidden" name="scanned_data" id="scanned_data">
 
-    <label for="contract_no">Contract No:</label><br>
+         <label for="contract_no">Contract No:</label><br>
     <input type="text" name="contract_no" required><br><br>
 
-    <label for="party_name">Party Name:</label><br>
+         <label for="party_name">Party Name:</label><br>
     <input type="text" name="party_name" required><br><br>
+
+        <label for="party_name">Gear Box:</label><br>
+    <input type="text" value="N.A" name="gear_box" required><br><br>
+
+         <label for="actuator">Actuator:</label><br>
+    <input type="text" value="N.A" name="actuator" required><br><br>
+
+          <label for="valve">Valve:</label><br>
+    <input type="text" value="N.A"  name="valve" required><br><br>
+
 
     <button type="submit">Submit</button>
 </form>

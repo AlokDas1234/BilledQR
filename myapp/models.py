@@ -7,5 +7,5 @@ class Item(models.Model):
     stock_qty= models.IntegerField(null=True,blank=True)
 
 class validQrCode(models.Model):
-    models.BooleanField(default=False)
+    valid_qr=models.BooleanField(default=True,null=True,blank=True)
 
