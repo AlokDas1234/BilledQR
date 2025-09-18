@@ -31,14 +31,14 @@
 
 
 {% if contract_no %}
-<p>{{ contract_no }}</p>
+    <p>{{ contract_no }}</p>
 {% endif %}
 {% if party_name %}
-<p>{{ party_name }}</p>
-<p>{{ gear_box }}</p>
-<p>{{ actuator }}</p>
-<p>{{ valve }}</p>
-<p>{{ scanned_value }}</p>
+    <p>{{ party_name }}</p>
+    <p>{{ gear_box }}</p>
+    <p>{{ actuator }}</p>
+    <p>{{ valve }}</p>
+    <p>{{ scanned_value }}</p>
 {% endif %}
 
 
@@ -46,23 +46,21 @@
 
 
 {% if items_with_qr %}
-<h1>These are all Items:</h1>
-{% for entry in items_with_qr %}
-    <p>Item Code: {{ entry.item.item_code }}</p>
-    <p>Item Name: {{ entry.item.item_name }}</p>
-    <p>Item Sl: {{ entry.sl_no }}</p>
+    <h1>These are all Items:</h1>
+        {% for entry in items_with_qr %}
+            <p>Item Code: {{ entry.item.item_code }}</p>
+            <p>Item Name: {{ entry.item.item_name }}</p>
+            <p>Item Sl: {{ entry.sl_no }}</p>
 
-    <p> Total Stock Qty: {{ entry.item.stock_qty }}</p>
-    <img src="data:image/png;base64,{{ entry.qr_code }}" alt="QR Code">
-    <p>_______________________________</p>
-{% endfor %}
+            <p> Total Stock Qty: {{ entry.item.stock_qty }}</p>
+            <img src="data:image/png;base64,{{ entry.qr_code }}" alt="QR Code">
+            <p>_______________________________</p>
+        {% endfor %}
 {% endif %}
 
 <h2>Scan QR Code</h2>
 <div id="qr-reader" style="width:300px;"></div>
 <p id="qr-result"></p>
-
-
 
 <div id="user_input" style="display:none;">
 <h2>User Input</h2>
