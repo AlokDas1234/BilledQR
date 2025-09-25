@@ -32,7 +32,7 @@ def index(request):
             qr_img.save(buffer, format="PNG")
             qr_base64 = base64.b64encode(buffer.getvalue()).decode()
 
-            print("item:", item.item_code, item.item_name)
+            # print("item:", item.item_code, item.item_name)
             items_with_qr.append({
                 "item": item,
                 "sl_no": i + 1,
@@ -50,7 +50,7 @@ def process_scan(request):
     if request.method == "POST":
         data = json.loads(request.body)
         scanned_value = data.get("scanned_data")
-        print(f"Scanned QR value: {scanned_value}")
+        # print(f"Scanned QR value: {scanned_value}")
 
         # You can use scanned_value to look up your Item model
         # Example: item = Item.objects.filter(item_code=scanned_value).first()
