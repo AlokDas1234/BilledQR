@@ -25,17 +25,14 @@ SECRET_KEY = 'django-insecure-_ga0!l-^9iaz1p3!%y7narxv1g#!n9+!#osw(qnylf(9izeyb_
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [
-    "billedqr.onrender.com",
-    "localhost",
-    "127.0.0.1",
-]
+ALLOWED_HOSTS = ['billedqr.onrender.com', ".onrender.com", "localhost", "127.0.0.1"]
 
-CSRF_TRUSTED_ORIGINS = [
-    "https://billedqr.onrender.com",
-    "http://127.0.0.1:8000",
-    "http://localhost:8000",
-]
+
+# CSRF_TRUSTED_ORIGINS = [
+#     "https://billedqr.onrender.com",
+#     "http://127.0.0.1:8000",
+#     "http://localhost:8000",
+# ]
 
 
 
