@@ -70,6 +70,7 @@ def process_final_scan(request):
         # print(f"Scanned QR: {scanned_value}")
         # print(f"Contract No: {contract_no}")
         # print(f"Party Name: {party_name}")
+        # print(f"Party Name: {party_name}")
 
         # Process/save data here
         return render(request, "myapp/index.html", {"scanned_value": scanned_value, "contract_no": contract_no, "party_name": party_name,"gear_box": gear_box, "actuator": actuator, "valve": valve})
