@@ -51,10 +51,10 @@
             <p>Item Code: {{ entry.item.item_code }}</p>
             <p>Item Name: {{ entry.item.item_name }}</p>
             <p>Item Sl: {{ entry.sl_no }}</p>
-
             <p> Total Stock Qty: {{ entry.item.stock_qty }}</p>
             <img src="data:image/png;base64,{{ entry.qr_code }}" alt="QR Code">
             <p>_______________________________</p>
+
         {% endfor %}
 {% endif %}
 
@@ -100,7 +100,6 @@
 
     <button type="submit">Submit</button>
 </form>
-
 
 </div>
 <script>
